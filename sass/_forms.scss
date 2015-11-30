@@ -1,0 +1,114 @@
+@charset "UTF-8";
+/* ==========================================================================
+* Кнопки
+* ========================================================================== */
+
+.button{
+	display: inline-block;
+	border: 0;
+	outline: none;
+	text-align: center;
+	text-decoration: none;
+	padding: 0;	
+	
+	transition: all .3s;
+	line-height: 1;
+
+
+	&--color{
+		background: #000;
+		color: #fff;
+		&:hover{
+			background: lighten(#000, 5%);
+		}
+		&:active{
+			background: darken(#000, 5%);
+		}
+	}
+
+
+	&--h32{
+		border-radius: 4px;
+		font-size: 14px;
+		padding: 8px 15px 8px;
+	}
+
+	&--block{
+		width: 100%;	
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+
+}
+
+/* ==========================================================================
+* Формы
+* ========================================================================== */
+
+.form{
+
+	@include clearfix;
+
+	&__line{
+		@include clearfix;
+		margin-bottom: 16px;
+	}
+
+	&__input-placeholder{
+		position: relative;
+		margin-bottom: 16px;
+
+		&--inline{
+			width: 48%;
+			float: right;
+			margin-bottom: 0;
+			&:first-child{
+				float: left;
+			}
+		}
+	}
+
+	label.error{
+		font-size: 14px;
+		position: absolute;
+		top: -13px;
+		right: 0;
+		margin-left: 0;
+		padding: 5px;
+		text-align: center;
+		white-space: nowrap;
+		color: #fff;
+		border-radius: 5px;
+		background: #000;
+		background: rgba(0, 0, 0, .7);
+	}
+
+	&__button-placeholder{
+		margin-top: 20px;
+	}
+
+	&__input,
+	&__textarea{
+		-webkit-appearance: none;
+		padding: 0 0 0 20px;
+		width: 100%;
+		outline: none;
+		border: 1px solid #ccc;
+		&.error{
+			border-color: red;
+		}
+	}
+	&__input{
+		&--h40{
+			height: 40px;
+			line-height: 40px;
+		}
+	}
+	&__textarea{
+		padding-top: 10px;
+		&--h120{
+			height: 120px;
+		}
+	}
+}

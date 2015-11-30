@@ -1,0 +1,99 @@
+@charset "UTF-8";
+/* ==========================================================================
+ * Global
+ * ========================================================================== */
+
+html{
+	min-width: 1024px;
+	-webkit-font-smoothing: antialiased;
+	text-size-adjust: none;
+	font-size: 16px;
+	line-height: 1.2;
+}
+
+a{
+	color: inherit;
+	text-decoration: none;
+	&:hover{
+		text-decoration: none;
+	}
+}
+
+.link{
+	border-bottom: 1px solid;
+	transition: all .3s;
+	&:hover{
+		border-color: transparent;
+	}
+}
+
+.inverselink{
+	border-bottom: 1px solid transparent;
+	transition: all .3s;
+	&:hover{
+		border-color: currentColor;
+	}	
+}
+
+//android hack
+p,
+span{
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQIW2NkAAIAAAoAAggA9GkAAAAASUVORK5CYII=); 
+}
+
+p{
+	margin: 0 0 1em;
+	&:last-child{
+		margin: 0;
+	}
+}
+
+/* ==========================================================================
+ * Layout
+ * ========================================================================== */
+
+.body-container{
+	overflow: hidden;
+	position: relative;
+}
+
+.wrap{
+	@include clearfix;
+	margin: auto;
+	padding: 0 0px;
+	width: 1024px;
+}
+
+/* ==========================================================================
+ * Main
+ * ========================================================================== */
+
+
+
+/* ==========================================================================
+ * modal
+ * ========================================================================== */
+
+.modal{
+	display: none;
+	padding: 30px;
+	text-align: center;
+
+	&__title{
+		font-size: 24px;
+		margin: 0 0 15px;
+	}
+
+	&__text{
+		font-size: 18px;
+	}
+}
+
+.fancybox-skin{
+	//background: transparent;
+	border-radius: 6px;
+}
+
+.fancybox-type-inline .fancybox-close{
+	
+}
