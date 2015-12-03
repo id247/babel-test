@@ -6,6 +6,9 @@ var autoprefixer = require('gulp-autoprefixer');
 var server = require('gulp-server-livereload');
 var fileinclude = require('gulp-file-include');
 var strip = require('gulp-strip-comments');
+var babel = require('gulp-babel');
+var concat = require('gulp-concat');
+var babelGlobals = require('gulp-babel-globals');
 
 //compile sass
 gulp.task('sass', function () {
@@ -48,7 +51,16 @@ gulp.task('sprite', function() {
 // copy js file to app
 gulp.task('copy-js', function() {
   gulp.src('./js/*.js')
-      .pipe(gulp.dest('./app/js'));
+        .pipe(babel({
+            presets: ['stage-2'],
+            plugins: ['transform-es2015-block-scoping']
+        }))
+        .on('error', console.log)
+        .pipe(concat('bundle.js'))
+        .on('error', console.log)
+        .pipe(babelGlobals())        
+        .on('error', console.log)
+        .pipe(gulp.dest('./app/js'));
 });
 
 // include htmls
